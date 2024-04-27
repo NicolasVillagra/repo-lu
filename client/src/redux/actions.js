@@ -6,7 +6,7 @@ import axios from "axios";
   
     return async function () {
       try {
-        const response = await axios.post("/pokemons" , payload)
+        const response = await axios.post("https://repo-lu.onrender.com/pokemons" , payload)
         return response; 
       } catch (error) {
         console.log(error);
@@ -17,7 +17,7 @@ import axios from "axios";
 export function searchPoke(name) {
   return async function (dispatch) {
     try {
-      var json = await axios.get("/pokemons?name=" + name) 
+      var json = await axios.get("https://repo-lu.onrender.com/pokemons?name=" + name) 
       return dispatch({
         type: "SEARCH_NAME",
         payload: json.data,
@@ -58,7 +58,7 @@ export function filterByAttack(payload){
 
 export function getPokemons() {
   return async function (dispatch) {
-    var json = await axios.get("/pokemons");
+    var json = await axios.get("https://repo-lu.onrender.com/pokemons");
     dispatch({
       type: "GET_POKEMONS",
       payload: json.data,
@@ -70,7 +70,7 @@ export function getPokemons() {
 export function getDetail(id) {
   return async function (dispatch) {
     try{
-        var json = await axios.get(`/pokemons/${id}`);
+        var json = await axios.get(`https://repo-lu.onrender.com/pokemons/${id}`);
     return dispatch({
       type: "GET_DETAILS",
       payload: json.data
@@ -84,7 +84,7 @@ export function getDetail(id) {
 
 export function getType() {
   return async function (dispatch) {
-    var json = await axios.get("/types");
+    var json = await axios.get("https://repo-lu.onrender.com/types");
     return dispatch({
       type: "GET_TYPE",
       payload: json.data
