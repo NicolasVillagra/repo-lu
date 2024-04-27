@@ -33,6 +33,7 @@ router.get("/:id", async (req, res, next) => { //Busqueda por id
         : res.status(404).send("No se encontró el pokemon");
     }
   } catch (error) {
+    res.status(400).json({ error: "Error en data", details: error });
     next(error);
   }
 });

@@ -52,13 +52,13 @@ function PokemonDetail({ pokemon }) {
         <img className="imagen" src={image} alt={name} width="250px" height="250px" />
         <div>
           <h3 className="type">
-            {types.length === 2 ? (
-              <>
-                {types[0].name}-{types[1].name}
-              </>
-            ) : (
-              types[0].name
-            )}
+            <ul>
+              {types.map((type, index) => (
+                <li key={index}>
+                  {typeof type === 'string' ? type : type.name}
+                </li>
+              ))}
+            </ul>
           </h3>
         </div>
         <div>
